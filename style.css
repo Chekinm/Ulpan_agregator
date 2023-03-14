@@ -88,14 +88,14 @@ header {
 
 .header-left {
     display: flex;
-    height: 101px;
+    height: 100px;
     align-items: center;
     margin: 0 50px;
 }
 
 .header-right {
     display: flex;
-    height: 101px;
+    height: 100px;
     align-items: center;
 }
 .header-right h3 {
@@ -103,6 +103,7 @@ header {
 }
 .landing {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: start;
     align-content: space-between;
@@ -128,8 +129,8 @@ header {
 
 .burger-menu{
     display: none;
-    width: 20px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     margin-right: 50px;
 }
 
@@ -141,7 +142,12 @@ header {
     width: 60vw;
     margin: 50px;
 }
-
+.main-logo{
+position: relative;
+width: 500px;
+top: -150px;
+left: 60%;
+}
 .find-button{
     top:200px;
     color: rgb(0, 0, 0);
@@ -154,17 +160,44 @@ header {
     background: #FFFFFF;
     border-radius: 13px;
     border: #373A48;
+    animation:jumphighlight 0.5s infinite alternate linear;
+}
+.top-logo-mobile{
+    display: none;
 }
 
 @media only screen and (max-width: 800px) {
+    .main-logo{
+        position: relative;
+        width: 400px;
+        top: 200px;
+        left: 0%;
+        }
+    .top-logo-mobile{
+        display: block;
+    }
+    .top-logo{
+        display: none;
+    }
     .header-right {
       display: none;
+    }
+    .header-left{
+        font-size: 10px;
     }
     .burger-menu{
         display: block;
     }
     .welcome-paragraph{
         font-size: 30px;
+    }
+  }
+  @keyframes jumphighlight{
+    from {
+      translate:0px 0px;
+    }
+    to {
+        translate:0px 10px;
     }
   }
 
