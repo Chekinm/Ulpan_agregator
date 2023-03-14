@@ -10,6 +10,19 @@
     visibility: hidden;
 }
 
+.find_container, .ulpan_list_container {
+    border: 1px solid black;
+}
+
+
+.map2 {
+
+    width="400"
+    height="400"
+    style="border:5px solid #373A48"
+    loading="lazy"
+}
+
 header{
 display: flex;
 justify-content: space-between;

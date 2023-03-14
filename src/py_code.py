@@ -23,7 +23,7 @@ class ulpan():
            free places"""
         self.dist =  hs.haversine(self.coord, user_coord)
 
-# our ulpans#
+# list of our ulpans#
 
 a = ulpan(name='Gordon', coord=(32.085863013828636, 34.77188926210782), link = '/index.html',
           link_to_photo='https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', 
@@ -31,8 +31,8 @@ a = ulpan(name='Gordon', coord=(32.085863013828636, 34.77188926210782), link = '
           dist=0,
           )
 b = ulpan('b',(32.066797729488634, 34.77080540392143),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
-c = ulpan('c',(90,0),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
-d = ulpan('d',(90,0),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
+c = ulpan('c',(32,37),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
+d = ulpan('d',(28,40),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 e = ulpan('e',(90,0),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 f = ulpan('f',(90,0),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 
@@ -40,9 +40,7 @@ ulpan_list = [a,b,c,d,e,f]
 
 def set_google_map(user_coord, ulpan_coord):
     g_direction_url = "https://www.google.com/maps/embed/v1/directions"
-    print(g_direction_url)
     origin = "&origin=" + str(user_coord)
-    print(origin)
     destin = "&destination=" + str(ulpan_coord)
     g_api = "?key="+"AIzaSyAW_jEvBezwNuaFUUg3u_CFLsZqk8_UNJU"
     mode = "&mode=walking"
@@ -77,25 +75,28 @@ async def get_coord(address):
 
     # we use function from pyscript tutorial to perform http request
     # it use pyfetch inside
-    response = await request(f"{base_url}", method="GET", headers=headers)
+    try:
 
-    resp_json = (await response.json())
-    print(resp_json)
-    #print(resp_json['resourceSets'][0]['estimatedTotal'])
-    #confidence = resp_json['resourceSets'][0]['resources'][0]['confidence']
-    number_of_variant = resp_json['resourceSets'][0]['estimatedTotal']
-    #print(confidence)
-    if number_of_variant == 0 or resp_json['resourceSets'][0]['resources'][0]['confidence'] != "High":
-        print("Address could not be found. Please correct you input")
+        response = await request(f"{base_url}", method="GET", headers=headers)
+
+        resp_json = (await response.json())
+        number_of_variant = resp_json['resourceSets'][0]['estimatedTotal']
+        if number_of_variant == 0 or resp_json['resourceSets'][0]['resources'][0]['confidence'] != "High":
+            print("Address could not be found. Please correct you input")
 
 
 
-##################################################
-###need to add html output with error here########
-# ################################################    
+        ##################################################
+        ###need to add html output with error here########
+        # ################################################    
+        
+        else:
+            coord = tuple(resp_json['resourceSets'][0]['resources'][0]['point']['coordinates'])
     
-    else:
-        coord = tuple(resp_json['resourceSets'][0]['resources'][0]['point']['coordinates'])
+    except:
+        print('Something went wrong')
+        coord = (32.08530045, 34.78180695)
+    
     return coord
 
 
@@ -108,20 +109,15 @@ async def find_ulpan(ulpan_list):
     address = Element("user_address").value
     user_coord = await get_coord(address)
 
-    
-    print(user_coord)
-
     for i in ulpan_list:
         i.measure_dist(user_coord)
         i.user_coord = user_coord   # we will use it to change direction to ulpan on map 
                                     #maps on hover on ulapn name element 
-        print(i.name, i.dist)
     ulpan_list.sort(key=lambda x: x.dist)
 
     for i in  range(3):   # we add text to corresponding div and made it unhidden
                           # i can do it in different way, but think this wau is better
         elem_id = 'ulpan' + str(i + 1)
-        print(elem_id)
         js.document.getElementById(elem_id).innerText = ulpan_list[i].name+',  dist = ' + str(round(ulpan_list[i].dist,2))
         js.document.getElementById(elem_id).classList.remove ('hidden')
 
@@ -134,7 +130,6 @@ async def find_ulpan(ulpan_list):
 
 def ulpan_1():
     g_src = set_google_map(ulpan_list[0].user_coord, ulpan_list[0].coord)
-    print(g_src)
     js.document.getElementById("map2").src = g_src
 
 def ulpan_2():
