@@ -1,13 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+    <!-------------------------------->
+    <!-- pyscript staff dont' remove-->
+    <!-------------------------------->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+      packages = ["haversine"]
+      [[fetch]]
+      files = ["./src/request.py"]
+    </py-config>
+    <!-------------------------------->
+        
     <link rel="stylesheet" href="style.css">
-    <title>Find your ulpan</title>
-</head>
-<body>
-    Here will be the site
-</body>
+    <title>Find ulpan</title>
+
+  </head>
+  <body>
+    <div class="input_adress_text_cont">
+        <input class="input__addres_textbox" id="user_address" value="Tel-Aviv">
+    </div>
+
+    <div class="find_button">
+        <button class="find_button" py-Click="find_ulpan(ulpan_list)" id="find_ulpan_button">Find me closest ulpans</button>      
+    </div>
+
+    <div class="ulpan_list hidden" id="ulpan1" py-mouseover="ulpan_1()">
+        Ulpan1
+    </div>
+
+    <div class="ulpan_list hidden" id="ulpan2" py-mouseover="ulpan_2()">
+        Ulpan2
+    </div>
+
+    <div class="ulpan_list hidden" id="ulpan3" py-mouseover="ulpan_3()">
+        Ulpan3
+    </div>
+
+    
+    <div class="map">
+        <iframe id="map2"
+            width="400"
+            height="400"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAW_jEvBezwNuaFUUg3u_CFLsZqk8_UNJU&origin=Tel-Aviv&destination=Tel-Aviv&avoid=tolls|highways"></iframe>
+        </iframe>
+    </div>
+    
+    <!-------------------------------->
+    <!-- pyscript staff dont' remove-->
+    <!-------------------------------->
+    <py-script src="./src/py_code.py" >
+    </py-script>
+
+    
+  </body>
 </html>

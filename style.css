@@ -1,7 +1,11 @@
 /* normalize  */
 
 * {
-    margin: 0;
+    margin: 10px;
     padding: 0;
     box-sizing: border-box;
+}
+
+ .hidden {   /*we need higer then other, as it used by pyscript, don't remove*/
+    visibility: hidden;
 }
