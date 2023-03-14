@@ -31,7 +31,7 @@ a = ulpan(name='Gordon', coord=(32.085863013828636, 34.77188926210782), link = '
           dist=0,
           )
 b = ulpan('b',(32.066797729488634, 34.77080540392143),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
-c = ulpan('c',(32,37),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
+c = ulpan('c',(as),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 d = ulpan('d',(28,40),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 e = ulpan('e',(90,0),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 f = ulpan('f',(90,0),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
@@ -115,7 +115,7 @@ async def find_ulpan(ulpan_list):
                                     #maps on hover on ulapn name element 
     ulpan_list.sort(key=lambda x: x.dist)
 
-    for i in  range(3):   # we add text to corresponding div and made it unhidden
+    for i in  range(4):   # we add text to corresponding div and made it unhidden
                           # i can do it in different way, but think this wau is better
         elem_id = 'ulpan' + str(i + 1)
         js.document.getElementById(elem_id).innerText = ulpan_list[i].name+',  dist = ' + str(round(ulpan_list[i].dist,2))
