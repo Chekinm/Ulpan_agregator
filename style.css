@@ -1,11 +1,38 @@
 /* normalize  */
 
 * {
-    margin: 10px;
+    margin: 0px;
     padding: 0;
     box-sizing: border-box;
 }
 
  .hidden {   /*we need higer then other, as it used by pyscript, don't remove*/
     visibility: hidden;
+}
+
+header{
+display: flex;
+justify-content: space-between;
+position: absolute;
+width: 100vw;
+height: 100px;
+left: 0px;
+top: 0px;
+background: #373A48;
+color: white;
+font-family: 'Noto Sans Lepcha', sans-serif;
+}
+.header-left{
+display: flex;
+height: 101px;
+align-items: center;
+margin: 0 50px;
+}
+.header-right{
+display: flex;
+height: 101px;
+align-items: center;
+}
+.header-right h3{
+    margin: 0px 50px;
 }
