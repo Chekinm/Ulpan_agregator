@@ -41,14 +41,14 @@ header {
 
 .header-left {
     display: flex;
-    height: 101px;
+    height: 100px;
     align-items: center;
     margin: 0 50px;
 }
 
 .header-right {
     display: flex;
-    height: 101px;
+    height: 100px;
     align-items: center;
 }
 .header-right h3 {
@@ -113,10 +113,12 @@ left: 60%;
     background: #FFFFFF;
     border-radius: 13px;
     border: #373A48;
+    animation:jumphighlight 0.5s infinite alternate linear;
 }
 .top-logo-mobile{
     display: none;
 }
+
 @media only screen and (max-width: 800px) {
     .main-logo{
         position: relative;
@@ -141,5 +143,13 @@ left: 60%;
     }
     .welcome-paragraph{
         font-size: 30px;
+    }
+  }
+  @keyframes jumphighlight{
+    from {
+      translate:0px 0px;
+    }
+    to {
+        translate:0px 10px;
     }
   }
