@@ -36,7 +36,6 @@ header {
     background: #373A48;
     color: white;
     z-index: 1;
-    white-space: nowrap;
 }
 
 .header-left {
@@ -120,14 +119,26 @@ left: 60%;
 }
 
 @media only screen and (max-width: 800px) {
+
+    .find-button{
+        margin-left: 0px;
+        width: 50vw;
+        border: #ffffff 2px solid;
+        color: white;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    .landing{
+        align-items:center;
+    }
     .main-logo{
         position: relative;
         width: 400px;
         top: 200px;
-        left: 0%;
+        left: auto;
         }
     .top-logo-mobile{
         display: block;
+        object-fit: contain;
     }
     .top-logo{
         display: none;
@@ -143,6 +154,8 @@ left: 60%;
     }
     .welcome-paragraph{
         font-size: 30px;
+        width: 80%;
+        margin: 50px;
     }
   }
   @keyframes jumphighlight{
