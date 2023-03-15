@@ -4,7 +4,7 @@
     margin: 0px;
     padding: 0;
     box-sizing: border-box;
-    /* overflow: hidden; */
+    overflow: hidden;
     font-family: 'Noto Sans Lepcha', sans-serif;
 }
 
@@ -133,56 +133,71 @@ header {
     margin-right: 50px;
 }
 
-.welcome-paragraph{
-    top:200px;
-    color: white;
-    position: relative;
-    font-size: 50px;
-    width: 60vw;
-    margin: 50px;
-}
-.main-logo{
-position: relative;
-width: 500px;
-top: -150px;
-left: 60%;
-}
-.find-button{
-    top:200px;
-    color: rgb(0, 0, 0);
-    position: relative;
-    font-size: 30px;
-    width: 300px;
-    height: auto;
-    margin-left: 50px;
-    padding: 7px;
-    background: #FFFFFF;
-    border-radius: 13px;
-    border: #373A48;
-    animation:jumphighlight 0.5s infinite alternate linear;
-}
 .top-logo-mobile{
     display: none;
 }
 
-@media only screen and (max-width: 800px) {
+.landing-content-container{
+    position: absolute;
+    top: 100px;
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 100px);
+}
+.left-paragraph-container{
+    height: 100%;
+    width: 50vw;
+}
+.right-logo-container{
+    height: 100%;
+    width: 50vw;
+}
+.para-container{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    color: white;
+    font-size:3vw
+}.find-container{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.find-container button{
+    height: 120px;
+    width: 800px;
+    background-color: rgba(255, 255, 255, 0.394);
+    border: none;
+    border-top: #ffffff solid 4px;
+    border-bottom: #ffffff solid 4px;
+    border-radius: 10px;
+    color: white;
+    font-size: 30px;
+}
+.right-logo-container img{
+    height: 100%;
+    width: 100%;
+}
 
-    .find-button{
-        margin-left: 0px;
-        width: 50vw;
-        border: #ffffff 2px solid;
-        color: white;
-        background-color: rgba(255, 255, 255, 0);
+
+@media only screen and (max-width: 800px) {
+    .right-logo-container{
+        width: 100vw;
     }
-    .landing{
-        align-items:center;
+    .left-paragraph-container{
+        width: 100vw;
     }
-    .main-logo{
-        position: relative;
-        width: 400px;
-        top: 200px;
-        left: auto;
-        }
+
+    .landing-content-container{
+        flex-direction: column;
+    }
+    .para-container{
+        font-size:23px;
+    }
     .top-logo-mobile{
         display: block;
         object-fit: contain;
@@ -198,11 +213,6 @@ left: 60%;
     }
     .burger-menu{
         display: block;
-    }
-    .welcome-paragraph{
-        font-size: 30px;
-        width: 80%;
-        margin: 50px;
     }
   }
   @keyframes jumphighlight{
@@ -238,12 +248,6 @@ left: 60%;
          margin: 10px;
          border:5px solid #373A48;
      } 
-     .find_button {
-         height: 35px;
-         background-color: #FFFFFF;
-         border: none;
-         margin: 10px 10px 10px 0px;
-     }
      .search_button {
          height: 100%;
      }
