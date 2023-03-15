@@ -1,12 +1,15 @@
 import asyncio
 import json
 import haversine as hs
-from src.request import request  # import our request function.
+from src.request import request  # import request function
+
 
 class ulpan():
-    """ for current stange we will hardcode ulpan information
-    but in the future we can create admin interface to add ulpan
+    """ for current stage we will hardcode ulpan information
+    but in the future we can create admin interface to add ulpan or 
+    get it via files or DB
     class properties also can be extended if needed"""
+
     def __init__(self, name='ulpan', coord =(0,0), link='./index.html', link_to_photo='', web_link='www.gov.il', dist=0, user_coord =(0,0),srch_str=''):
         self.name = name
         self.coord = coord
@@ -28,45 +31,50 @@ class ulpan():
 
 a = ulpan(name='Gordon', 
           coord=(32.085863013828636, 34.77188926210782), 
-          link = '/index.html',
+          link='/index.html',
           link_to_photo='https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', 
           web_link='https://ulpangordon.co.il/',
           srch_str='Ulpan Gordon',
           )
 
-b = ulpan(name = 'Ulpan La-Inyan',
-          coord = (32.06660771818719, 34.78690089274125),
-          link = './index.html',
-          link_to_photo = 'https://lh3.googleusercontent.com/p/AF1QipOve4ilXRKEEimXS9nrv2MPlAf9ro_gOIN3s4jp=s680-w680-h510', 
+b = ulpan(name='Ulpan La-Inyan',
+          coord=(32.06660771818719, 34.78690089274125),
+          link='./index.html',
+          link_to_photo='https://lh3.googleusercontent.com/p/AF1QipOve4ilXRKEEimXS9nrv2MPlAf9ro_gOIN3s4jp=s680-w680-h510', 
           web_link='https://ulpan.com/',
           srch_str='Ulpan La-Inyan Tel-Aviv',
           )
 
-c = ulpan(name = 'Millhauz',
-          coord = (32.08381763737404, 34.81398149452528),
-          link = './index.html',
-          link_to_photo = 'https://pr1.nicelocal.co.il/AmGvuS4Xr0bei_ucH6DOTw/640x427,q85/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2bk3Ve5Ih7MsuXkoXcaFLQRMgcBRu0cVQKbTGGW5Fs2fBYM8BOOtnFQGvkPCKNyWdQ', 
+c = ulpan(name='Millhauz',
+          coord=(32.08381763737404, 34.81398149452528),
+          link='./index.html',
+          link_to_photo='https://pr1.nicelocal.co.il/AmGvuS4Xr0bei_ucH6DOTw/640x427,q85/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2bk3Ve5Ih7MsuXkoXcaFLQRMgcBRu0cVQKbTGGW5Fs2fBYM8BOOtnFQGvkPCKNyWdQ', 
           web_link='https://www.ulpan-milhauz.com/',
           srch_str='Ulpan Millhauz Tel-Aviv',
           )
 
-d = ulpan(name = 'Ulpan Sheli',
-          coord = (32.07632075424373, 34.768525596541636),
-          link = './index.html',
-          link_to_photo = 'https://lh3.googleusercontent.com/p/AF1QipOoPU5dhzsRt7XH91u_5z3wH7FAdLg3ZVhovigQ=s680-w680-h510', 
+d = ulpan(name='Ulpan Sheli',
+          coord=(32.07632075424373, 34.768525596541636),
+          link='./index.html',
+          link_to_photo='https://lh3.googleusercontent.com/p/AF1QipOoPU5dhzsRt7XH91u_5z3wH7FAdLg3ZVhovigQ=s680-w680-h510', 
           web_link='https://www.oulpansheli.org/en/',
           srch_str='Ulpan Sheli',
           )
 
-d = ulpan(name = 'U-Time',
-          coord = (31.966620982957515, 34.8036726453466),
-          link = './index.html',
-          link_to_photo = 'https://lh3.googleusercontent.com/p/AF1QipOoPU5dhzsRt7XH91u_5z3wH7FAdLg3ZVhovigQ=s680-w680-h510', 
+d = ulpan(name='U-Time',
+          coord=(31.966620982957515, 34.8036726453466),
+          link='./index.html',
+          link_to_photo='https://lh3.googleusercontent.com/p/AF1QipOoPU5dhzsRt7XH91u_5z3wH7FAdLg3ZVhovigQ=s680-w680-h510', 
           web_link='https://www.oulpansheli.org/en/',
           srch_str='Ulpan U-Time',
           )
 
-e = ulpan('Developers Institue. If you like to learn python instead!:)',(32.0872519316031, 34.80171392493622),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://developers.institute/en/',dist = 0,user_coord=(0,0))
+e = ulpan(name='Developers Institue. If you like to learn python instead!:)',
+          coord=(32.0872519316031, 34.80171392493622),
+          link = './index.html',
+          link_to_photo = './index.html',
+          web_link='https://developers.institute/en/',
+          )
 f = ulpan('f-test',(37,35),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 
 ulpan_list = [a,b,c,d,e,f]
@@ -142,7 +150,7 @@ async def get_coord(address):
         error_msg.innerText = "Looks that something goes wrong with remote servers or coonection has lost!"
         error_action.innerText = "Try again later!"
         
-        coord = (32.08530045, 34.78180695) # set to default coordinates (Tel-Aviv center)
+        coord = (32.08050852962776, 34.780498165225104) # set to default coordinates (Tel-Aviv center)
     
     return coord
 
@@ -167,12 +175,13 @@ async def find_ulpan(ulpan_list):
         elem_id = 'ulpan' + str(i + 1)
         ulpan_name_obj_id = 'ulpan' + str(i + 1)+'_name'
         ulpan_dist_obj_id = 'ulpan' + str(i + 1)+'_dist'
+        ulpan_link_id = "ulp_link" + str(i + 1)
         js.document.getElementById(ulpan_name_obj_id).innerText = ulpan_list[i].name
         js.document.getElementById(ulpan_dist_obj_id).innerText = 'Just ' + str(round(ulpan_list[i].dist,2)) + ' km from you!'
+        js.document.getElementById(ulpan_link_id).href = ulpan_list[i].web_link
         js.document.getElementById(elem_id).classList.remove ('hidden')
-
+        
 
     g_src = set_google_map(user_coord, ulpan_list[0].coord)
     js.document.getElementById("map2").src = g_src
     
-
