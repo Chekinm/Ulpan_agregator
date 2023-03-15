@@ -11,7 +11,7 @@
 .hidden {   /*we need higer then other, as it used by pyscript, don't remove*/
     visibility: hidden;
 }
-.false_header {
+.fake-header {
     height: 100px;
 }
 
