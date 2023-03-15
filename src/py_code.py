@@ -94,8 +94,13 @@ async def get_coord(address):
             coord = tuple(resp_json['resourceSets'][0]['resources'][0]['point']['coordinates'])
     
     except:
-        print('Something went wrong')
-        coord = (32.08530045, 34.78180695)
+
+        error_obj = js.document.getElementById("error_box")
+        error_obj.innerText ("We have an error")
+        error_obj.classList.remove ('hidden')
+       
+        
+        coord = (32.08530045, 34.78180695) # set to default coordinates (Tel-Aviv center)
     
     return coord
 
@@ -109,13 +114,13 @@ async def find_ulpan(ulpan_list):
     address = Element("user_address").value
     user_coord = await get_coord(address)
 
-    for i in ulpan_list:
-        i.measure_dist(user_coord)
-        i.user_coord = user_coord   # we will use it to change direction to ulpan on map 
+    for ulpan in ulpan_list:
+        ulpan.measure_dist(user_coord)
+        ulpan.user_coord = user_coord   # we will use it to change direction to ulpan on map 
                                     #maps on hover on ulapn name element 
     ulpan_list.sort(key=lambda x: x.dist)
 
-    for i in  range(4):   # we add text to corresponding div and made it unhidden
+    for i in  range(3):   # we add text to corresponding div and made it unhidden
                           # i can do it in different way, but think this wau is better
         elem_id = 'ulpan' + str(i + 1)
         js.document.getElementById(elem_id).innerText = ulpan_list[i].name+',  dist = ' + str(round(ulpan_list[i].dist,2))
