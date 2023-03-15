@@ -47,7 +47,7 @@ c = ulpan(name = 'Millhauz',
           link = './index.html',
           link_to_photo = 'https://pr1.nicelocal.co.il/AmGvuS4Xr0bei_ucH6DOTw/640x427,q85/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2bk3Ve5Ih7MsuXkoXcaFLQRMgcBRu0cVQKbTGGW5Fs2fBYM8BOOtnFQGvkPCKNyWdQ', 
           web_link='https://www.ulpan-milhauz.com/',
-          srch_str='Ulpan Millhauz',
+          srch_str='Ulpan Millhauz Tel-Aviv',
           )
 
 d = ulpan(name = 'Ulpan Sheli',
@@ -66,7 +66,7 @@ d = ulpan(name = 'U-Time',
           srch_str='Ulpan U-Time',
           )
 
-e = ulpan('e-test',(35,37),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
+e = ulpan('Developers Institue. If you like to learn python instead!:)',(32.0872519316031, 34.80171392493622),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://developers.institute/en/',dist = 0,user_coord=(0,0))
 f = ulpan('f-test',(37,35),'./index.html','https://ulpangordon.co.il/wp-content/uploads/2023/01/47-1024x683.jpg', web_link='https://ulpangordon.co.il/',dist = 0,user_coord=(0,0))
 
 ulpan_list = [a,b,c,d,e,f]
@@ -81,17 +81,20 @@ def set_google_map(user_coord, ulpan_coord):
     return g_src
 
 def ulpan_1():
-    g_src = set_google_map(ulpan_list[0].user_coord, ulpan_list[0].srch_str)
+    g_src = set_google_map(ulpan_list[0].user_coord, ulpan_list[0].coord)
     js.document.getElementById("map2").src = g_src
-    print(g_src)
 
 def ulpan_2():
-    g_src = set_google_map(ulpan_list[1].user_coord, ulpan_list[1].srch_str)
+    g_src = set_google_map(ulpan_list[1].user_coord, ulpan_list[1].coord)
     js.document.getElementById("map2").src = g_src
 
 def ulpan_3():
-    g_src = set_google_map(ulpan_list[2].user_coord, ulpan_list[2].srch_str)
+    g_src = set_google_map(ulpan_list[2].user_coord, ulpan_list[2].coord)
     js.document.getElementById("map2").src = g_src
+
+def close_error_msg():
+    error_obj = js.document.getElementById("error_box")
+    error_obj.classList.add ('hidden')
     
 
 async def get_coord(address):
@@ -169,32 +172,7 @@ async def find_ulpan(ulpan_list):
         js.document.getElementById(elem_id).classList.remove ('hidden')
 
 
-    g_src = set_google_map(user_coord, ulpan_list[0].srch_str)
+    g_src = set_google_map(user_coord, ulpan_list[0].coord)
     js.document.getElementById("map2").src = g_src
     
 
-
-
-def ulpan_1():
-    g_src = set_google_map(ulpan_list[0].user_coord, ulpan_list[0].srch_str)
-    js.document.getElementById("map2").src = g_src
-
-def ulpan_2():
-    g_src = set_google_map(ulpan_list[1].user_coord, ulpan_list[1].srch_str)
-    js.document.getElementById("map2").src = g_src
-
-def ulpan_3():
-    g_src = set_google_map(ulpan_list[2].user_coord, ulpan_list[2].srch_str)
-    js.document.getElementById("map2").src = g_src
-
-def close_error_msg():
-
-    error_obj = js.document.getElementById("error_box")
-    error_obj.classList.add ('hidden')
-
-
-# async def main()
-#     await print(get_distance())
-
-# asyncio.run(main())
-# #asyncio.ensure_future(main())
