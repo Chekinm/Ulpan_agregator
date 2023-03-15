@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <!-------------------------------->
-    <!-- pyscript staff don't remove-->
-    <!-------------------------------->
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config>
-      packages = ["haversine"]
-      [[fetch]]
-      files = ["./src/request.py"]
-    </py-config>
-    <!-------------------------------->
-        
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lepcha&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-------------------------------->
+  <!-- pyscript staff don't remove-->
+  <!-------------------------------->
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <py-config>
+    packages = ["haversine"]
+    [[fetch]]
+    files = ["./src/request.py"]
+  </py-config>
+  <!-------------------------------->
+      
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lepcha&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -93,9 +93,9 @@
           <div class="error_msg" id="error_msg">Default error message</div>
           <button class="close_button" id="error_action" py-Click="close_error_msg()" id="close_error_msg">Default error action</button>        
     
-          <!-- the class should be error_no_error error_raise depending
-          on reply from bing see py_code
-          Error message also comes form there-->    
+          <!-- when wrror arise oython delete class hidden and message appear
+            on the screen. error text and close button text 
+            depends on  the error raised-->    
         </div>
     
     
@@ -103,9 +103,7 @@
       
         <!-------------------------------->
         <!-- pyscript staff dont' remove-->
-        <!-------------------------------->
-    
-        
+        <!--------------------------------> 
         <py-script src="./src/py_code.py" >
         </py-script>
     
