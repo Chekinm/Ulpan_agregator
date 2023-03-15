@@ -11,7 +11,10 @@
 .hidden {   /*we need higer then other, as it used by pyscript, don't remove*/
     visibility: hidden;
 }
-.fake-header {
+
+.main
+
+.false_header {
     height: 100px;
 }
 
@@ -186,6 +189,15 @@ header {
     background-color: azure;
 }
 
+.ulpan-content-container {
+
+}
+.ulpan-header {
+    display: flex;
+    top: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .ulpan-content {
     top: 100px;
@@ -210,10 +222,12 @@ header {
 }
 .right-ulpan-content {
     margin-top: 100px;
+    padding: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 50%;
     height: 100%;
+    text-align: justify;
     /* background-color: rgb(158, 111, 111); */
    
 }
