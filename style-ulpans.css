@@ -11,7 +11,10 @@
 .hidden {   /*we need higer then other, as it used by pyscript, don't remove*/
     visibility: hidden;
 }
-.fake-header {
+
+.main
+
+.false_header {
     height: 100px;
 }
 
@@ -183,29 +186,64 @@ header {
 .right-logo-container img{
     height: 100%;
     width: 100%;
+    background-color: azure;
 }
 
 .ulpan-content-container {
-    width: 100%;
-    height: 100%;
-    flex: auto;
-    flex-direction: row;
+
 }
+.ulpan-header {
+    display: flex;
+    top: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .ulpan-content {
-    width: 100%;
-    flex: auto;
-    flex-wrap: nowrap;
+    top: 100px;
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    /* background-color: rgb(205, 133, 85); */
 }
 .left-ulpan-content {
+        margin-top: 100px;
         width: 50%;
         height: 100%;
-
+        /* background-color: rgb(60, 103, 189); */
+        padding: 5px;
+        
         
 }
+
+.pictures {
+    width: 100%;
+}
 .right-ulpan-content {
+    margin-top: 100px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
     width: 50%;
     height: 100%;
+    text-align: justify;
+    /* background-color: rgb(158, 111, 111); */
+   
 }
+.top-ulpan-content {
+    width: 100%;
+    height: 50%;
+    /* background-color: aquamarine; */
+}
+
+.bottom-ulpan-content {
+    width: 100%;
+    height: 50%;
+    /* background-color: rgb(157, 80, 80); */
+}
+
+
 
 
 @media only screen and (max-width: 800px) {

@@ -5,6 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        <!-------------------------------->
+    <!-- pyscript staff don't remove-->
+    <!-------------------------------->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+      packages = ["haversine"]
+      [[fetch]]
+      files = ["./src/request.py"]
+    </py-config>
+    <!-------------------------------->
+        
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +44,7 @@
             <p class="welcome-paragraph">Welcome to Ulpan The one stop shop for finding an Ulpan near you</p>
             </div>
             <div class="find-container">
-            <button class="find-button">Find The best Ulpan</button>
+            <button onclick="location.href='#page2';" class="find-button">Find The best Ulpan</button>
             </div>
         </div>
         <div class="right-logo-container">
@@ -41,8 +53,62 @@
     </div>
     </main>
     </section>
-    <section class="page2">
-
+    <section id="page2" class="page2">  
+      <div class="page">
+        <div class="find_container">
+    
+          <div class ="find_toolbar">
+              <input class="input_addres_textbox" id="user_address" value="Tel-Aviv">  
+              <button class="find_button" py-Click="find_ulpan(ulpan_list)" id="find_ulpan_button"><img class=search_button src="./assets/search_button.svg"></button>        
+          </div>
+          
+          <div class="map">
+              <iframe id="map2" class="map2"
+                              loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAW_jEvBezwNuaFUUg3u_CFLsZqk8_UNJU&origin=Tel-Aviv&destination=Tel-Aviv&avoid=tolls|highways"></iframe>
+              </iframe>
+          </div>
+        </div>  
+        
+        <div class="ulpan_list_container">
+          <div class="ulpan_list hidden" id="ulpan1" py-mouseover="ulpan_1()">
+              <div id="ulpan1_name">Ulpan1</div>
+              <div id="ulpan1_dist">1 km from you</div>
+          </div>
+    
+          <div class="ulpan_list hidden" id="ulpan2" py-mouseover="ulpan_2()">
+            <div id="ulpan2_name">Ulpan2</div>
+            <div id="ulpan2_dist">1 km from you</div>
+          </div>
+    
+          <div class="ulpan_list hidden" id="ulpan3" py-mouseover="ulpan_3()">
+            <div id="ulpan3_name">Ulpan3</div>
+            <div id="ulpan3_dist">1 km from you</div>
+          </div>
+        </div>
+    
+        <div class="error_box hidden" id="error_box"> 
+          <div class="error_msg" id="error_msg">Default error message</div>
+          <button class="close_button" id="error_action" py-Click="close_error_msg()" id="close_error_msg">Default error action</button>        
+    
+          <!-- the class should be error_no_error error_raise depending
+          on reply from bing see py_code
+          Error message also comes form there-->    
+        </div>
+    
+    
+      </div>  <!-- end of the page container --> 
+      
+        <!-------------------------------->
+        <!-- pyscript staff dont' remove-->
+        <!-------------------------------->
+    
+        
+        <py-script src="./src/py_code.py" >
+        </py-script>
+    
     </section> 
     <section class="page3">
         <main>
