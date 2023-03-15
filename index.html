@@ -21,25 +21,19 @@
 
   </head>
   <body>
-    <header class="header">header</header> 
+  <div class="false_header"> </div>
+     
+   
+  <div class="page">
   <div class="find_container">
-    <div class="input_adress_text_cont">
-        <input class="input__addres_textbox" id="user_address" value="Tel-Aviv">
-    </div>
-
-    <div class="find_button">
-        <button class="find_button" py-Click="find_ulpan(ulpan_list)" id="find_ulpan_button">Find me closest ulpans</button>      
-    </div>
-
-    
-
+    <div class ="find_toolbar">
+        <input class="input_addres_textbox" id="user_address" value="Tel-Aviv">  
+        <button class="find_button" py-Click="find_ulpan(ulpan_list)" id="find_ulpan_button"><img class=search_button src="./assets/search_button.svg"></button>        
+   </div>
     
     <div class="map">
         <iframe id="map2" class="map2"
-            width="400"
-            height="400"
-            style="border:5px solid #373A48"
-            loading="lazy"
+                        loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAW_jEvBezwNuaFUUg3u_CFLsZqk8_UNJU&origin=Tel-Aviv&destination=Tel-Aviv&avoid=tolls|highways"></iframe>
@@ -60,6 +54,7 @@
         Ulpan3
     </div>
   </div>
+</div>
     
     <!-------------------------------->
     <!-- pyscript staff dont' remove-->
