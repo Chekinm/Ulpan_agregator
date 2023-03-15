@@ -128,7 +128,10 @@ async def find_ulpan(ulpan_list):
     for i in  range(3):   # we add text to corresponding div and made it unhidden
                           # i can do it in different way, but think this wau is better
         elem_id = 'ulpan' + str(i + 1)
-        js.document.getElementById(elem_id).innerText = ulpan_list[i].name+',  dist = ' + str(round(ulpan_list[i].dist,2))
+        ulpan_name_obj_id = 'ulpan' + str(i + 1)+'_name'
+        ulpan_dist_obj_id = 'ulpan' + str(i + 1)+'_dist'
+        js.document.getElementById(ulpan_name_obj_id).innerText = ulpan_list[i].name
+        js.document.getElementById(ulpan_dist_obj_id).innerText = 'Just ' + str(round(ulpan_list[i].dist,2)) + ' km from you!'
         js.document.getElementById(elem_id).classList.remove ('hidden')
 
 
