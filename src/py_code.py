@@ -82,23 +82,28 @@ async def get_coord(address):
         resp_json = (await response.json())
         number_of_variant = resp_json['resourceSets'][0]['estimatedTotal']
         if number_of_variant == 0 or resp_json['resourceSets'][0]['resources'][0]['confidence'] != "High":
-            print("Address could not be found. Please correct you input")
+            # Bing cannot find adress or don't sure about it so we raise an adress error
+            # wrong adress error box raise
+            error_obj = js.document.getElementById("error_box")
+            error_msg = js.document.getElementById("error_msg")
+            error_action = js.document.getElementById("error_action")
+            error_obj.classList.remove ('hidden')
+            error_msg.innerText = "Sorry, we are not sure about your address! \n Check it and try again!"
+            error_action.innerText = "Try again"
 
-
-
-        ##################################################
-        ###need to add html output with error here########
-        # ################################################    
-        
+            error_obj.classList.remove ('hidden')  # make it visible       
         else:
             coord = tuple(resp_json['resourceSets'][0]['resources'][0]['point']['coordinates'])
     
     except:
-
+        # some general problem occurs on the server side
+        # can't do nothing until them fix it
         error_obj = js.document.getElementById("error_box")
-        error_obj.innerText ("We have an error")
+        error_msg = js.document.getElementById("error_msg")
+        error_action = js.document.getElementById("error_action")
         error_obj.classList.remove ('hidden')
-       
+        error_msg.innerText = "Looks that something goes wrong with remote servers or coonection has lost!"
+        error_action.innerText = "Try again later!"
         
         coord = (32.08530045, 34.78180695) # set to default coordinates (Tel-Aviv center)
     
@@ -144,6 +149,11 @@ def ulpan_2():
 def ulpan_3():
     g_src = set_google_map(ulpan_list[2].user_coord, ulpan_list[2].coord)
     js.document.getElementById("map2").src = g_src
+
+def close_error_msg():
+
+    error_obj = js.document.getElementById("error_box")
+    error_obj.classList.add ('hidden')
 
 
 # async def main()

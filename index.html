@@ -68,7 +68,10 @@
       </div>
     </div>
 
-    <div class="error_box error_no_error" id="error_box"> Default error message
+    <div class="error_box hidden" id="error_box"> 
+      <div class="error_msg" id="error_msg">Default error message</div>
+      <button class="close_button" id="error_action" py-Click="close_error_msg()" id="close_error_msg">Default error action</button>        
+
       <!-- the class should be error_no_error error_raise depending
       on reply from bing see py_code
       Error message also comes form there-->    
