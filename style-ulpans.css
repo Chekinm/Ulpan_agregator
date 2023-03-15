@@ -1,28 +1,9 @@
-/* normalize  */
-
 * {
     margin: 0px;
     padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'Noto Sans Lepcha', sans-serif;
-}
-
- .hidden {   /*we need higer then other, as it used by pyscript, don't remove*/
-    visibility: hidden;
-}
-
-.find_container, .ulpan_list_container {
-    border: 1px solid black;
-}
-
-
-.map2 {
-
-    width="400"
-    height="400"
-    style="border:5px solid #373A48"
-    loading="lazy"
+    box-sizing: border-box;
 }
 
 header {
@@ -155,43 +136,33 @@ left: 60%;
   }
 
 
-  .container-ulpan {
-    margin-top: 200px;
+.container-ulpan {
     display: flex;
   }
+
+  .fake-header {
+    height: 100px;
+  }
 .header-ulpan {
+    margin-top: 5px;
     min-height: 80px;
     border: 2px solid black;
 }
-#ulpan-header {
-    margin-top: 100px;
-}
 
-.pictures-ulpan {
+.pictures-ulpan, .blockforboxes {
 display: flex;
 flex-wrap: wrap;
+height: 30vh;
 border: 2px solid black;
 }
 
-.blockforboxes {
-    /* display: table-column; */
-    border: 2px solid black;
-
-
-}
-
-.reviews-ulpan {
-    min-height: 300px;
-    padding: 2vh;
+.reviews-ulpan, .description {
+    min-height: 200px;
+    padding: 1vh;
     border: 2px solid black;
 
 }
 
-.description {
-    min-height: 300px;
-    padding: 2vh;
-    border: 2px solid black;
-}
 
 
 
