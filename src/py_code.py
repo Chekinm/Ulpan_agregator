@@ -71,7 +71,7 @@ d = ulpan(name='U-Time',
 
 e = ulpan(name='Developers Institue. If you like to learn python instead!:)',
           coord=(32.0872519316031, 34.80171392493622),
-          link='./ulpans/ulpan-leinyan.html',
+          link='https://developers.institute/en/',
           link_to_photo = './index.html',
           web_link='https://developers.institute/en/',
           )
