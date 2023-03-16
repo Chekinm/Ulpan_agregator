@@ -179,6 +179,8 @@ async def find_ulpan(ulpan_list):
         js.document.getElementById(ulpan_name_obj_id).innerText = ulpan_list[i].name
         js.document.getElementById(ulpan_dist_obj_id).innerText = 'Just ' + str(round(ulpan_list[i].dist,2)) + ' km from you!'
         js.document.getElementById(ulpan_link_id).href = ulpan_list[i].web_link
+        js.document.getElementById(ulpan_link_id).target = "_blanc"
+
         js.document.getElementById(elem_id).classList.remove ('hidden')
         
 
