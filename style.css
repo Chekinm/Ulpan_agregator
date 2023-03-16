@@ -263,14 +263,30 @@ header {
         display: block;
     }
   }
-  @keyframes jumphighlight{
-    from {
-      translate:0px 0px;
-    }
-    to {
-        translate:0px 10px;
-    }
-  }
+.mobilemenu{
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    background-color: #373a48;
+    text-align: center;
+    width: 70vw;
+    height: 100px;
+    font-size: 15px;
+    z-index: 3;
+} 
+.burger-menu:hover + #mobile{
+   visibility:visible;
+} 
+.mobile-menu-link{
+    margin: 10px;
+} 
+.menu-button{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
 
   @media only screen and (max-width: 800px) {
     .page {
