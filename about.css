@@ -134,6 +134,9 @@ color: white;
 }
 .about-content button{
     width: 40%;
+    background-color: #373A48;
+    border:none;
+    margin-left: 30px;
     color:rgb(255, 255, 255);
     font-size: 40px;
 }
