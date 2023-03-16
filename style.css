@@ -75,6 +75,14 @@ html{
     height: calc((100% - 30px) / 3);
 }
 
+.ulpan_button {
+    padding 3px 20px;
+    text-decoration: none;
+    background-color:#373A48;
+    
+
+
+}
 
 .map2 {
     width: calc(100% - 20px);
@@ -215,6 +223,53 @@ header {
     height: 100%;
     width: 100%;
 }
+
+
+.false_header {
+    height: 100px;
+}
+
+.top_section {
+
+    border: 3px solid #373A48;
+    border-bottom: none;
+    height: 100px;
+    font-size: 40px;
+}
+
+.info_cont {
+    display: flex;
+}
+
+.picture_cont {
+    border:5px solid #373A48;
+    border-right: none;
+    width: 30%;
+    height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+}
+
+.image_ul{
+    margin 5px;
+}
+.right_cont {
+    width: 70%;
+    height: calc(100vh - 200px);
+    
+}
+
+.review {
+    border: 5px solid #373A48;
+    height: 50%;
+    border-bottom: none;
+}
+
+.desc {
+    border: 5px solid #373A48;
+    height: 50%;
+}
+
 
 
 @media only screen and (max-width: 800px) {
