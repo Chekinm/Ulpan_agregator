@@ -76,11 +76,11 @@ e = ulpan(name='Developers Institue. If you like to learn python instead!:)',
           web_link='https://developers.institute/en/',
           )
 
-f = ulpan(name='f',
-          coord=(31.966620982957515, 34.8036726453466),
+f = ulpan(name='Ulpan Lilienblum 7',
+          coord=(32.06222463402526, 34.76835960921801),
           link='./ulpans/ulpan-leinyan.html',
           link_to_photo = './index.html',
-          web_link='https://developers.institute/en/',
+          web_link='https://www.lilienblum7.com/',
           )
 
 ulpan_list = [a,b,c,d,e,f]
@@ -189,8 +189,8 @@ async def find_ulpan(ulpan_list):
         js.document.getElementById(ulpan_dist_obj_id).innerText = 'Just ' + str(round(ulpan_list[i].dist,2)) + ' km from you!'
         js.document.getElementById(ulpan_link_id).href = ulpan_list[i].web_link
         js.document.getElementById(ulpan_link_id).target = "_blanc"
-        js.document.getElementById(inner_link_id).href = ulpan_list[i].link
-        js.document.getElementById(inner_link_id).target = "_blanc"
+        # js.document.getElementById(inner_link_id).href = ulpan_list[i].link
+        # js.document.getElementById(inner_link_id).target = "_blanc"
 
 
         js.document.getElementById(elem_id).classList.remove ('hidden')
