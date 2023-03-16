@@ -83,10 +83,10 @@ header {
 }
 .about-container{
     position: absolute;
-    top: 150px;
+    top: 105px;
     width: 99vw;
-    height: 80vh;
-    background-color: #c2ccf580;
+    height:89vh;
+    background-color: #373a48c7;
     margin: auto;
     border: #373A48 solid 4px;
     border-radius: 4px;
@@ -97,7 +97,7 @@ header {
     text-align: center;
     padding: 10px;
     font-size: 40px;
-    background-color: #6776b6b6;
+    background-color: #889ced61;
     color: white;
 }
 .about-content{
