@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Noto Sans Lepcha', sans-serif;
     overflow: hidden;
+    scroll-behavior: smooth;
 }
 a , a:visited{
 color: rgb(255, 255, 255);
