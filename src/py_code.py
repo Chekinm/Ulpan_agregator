@@ -10,7 +10,7 @@ class ulpan():
     get it via files or DB
     class properties also can be extended if needed"""
 
-    def __init__(self, name='ulpan', coord =(0,0), link='./landing.html', link_to_photo='', web_link='www.gov.il', dist=0, user_coord =(0,0),srch_str=''):
+    def __init__(self, name='ulpan', coord =(0,0), link='./index.html', link_to_photo='', web_link='www.gov.il', dist=0, user_coord =(0,0),srch_str=''):
         self.name = name
         self.coord = coord
         self.link = link
