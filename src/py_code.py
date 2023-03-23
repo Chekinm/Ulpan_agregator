@@ -119,7 +119,7 @@ async def get_coord(address):
     return error, if confidence 'high' return geo coordinates"""
 
     
-    search_api = "http://dev.virtualearth.net/REST/v1/"
+    search_api = "https://dev.virtualearth.net/REST/v1/"
     api_key = 'ArGH_I3FimB7iNG-97oiz_24UeOtXfgpt66X3gYHR8A64AXAoXmO5uaq2j9oroHB'       
     base_url = search_api + "Locations?q=" + address + '&key=' + api_key 
     headers = {"Content-type": "application/json"}
